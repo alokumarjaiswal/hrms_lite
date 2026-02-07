@@ -15,4 +15,5 @@ python manage.py collectstatic --noinput --clear
 
 # Start Gunicorn
 # Workers = (2 * CPU) + 1. We use 4 as a safe default for small containers.
-exec gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 4
+# Bind to PORT environment variable provided by Render (defaults to 8000 for local dev)
+exec gunicorn config.wsgi:application --bind 0.0.0.0:${PORT:-8000} --workers 4
