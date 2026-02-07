@@ -12,11 +12,11 @@ services:
       - key: DEBUG
         value: "False"
       - key: ALLOWED_HOSTS
-        sync: false
+        value: .onrender.com
       - key: CORS_ALLOWED_ORIGINS
-        sync: false
+        value: https://placeholder.vercel.app
       - key: CSRF_TRUSTED_ORIGINS
-        sync: false
+        value: https://*.onrender.com
       - key: DATABASE_URL
         fromDatabase:
           name: hrms-lite-db
