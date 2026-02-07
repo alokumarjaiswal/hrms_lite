@@ -23,3 +23,9 @@ RUN mkdir -p /app/staticfiles && chown -R appuser:appuser /app
 
 # Switch to non-root user
 USER appuser
+
+# Expose port (Render will map this dynamically)
+EXPOSE 8000
+
+# Run entrypoint script
+CMD ["sh", "entrypoint.sh"]
