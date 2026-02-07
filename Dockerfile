@@ -15,5 +15,11 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 # Copy project
 COPY . /app/
 
-# We will add a non-root user later for strict security, 
-# but for MVP setup, root inside container is acceptable for now.
+# Create a non-root user for security
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+
+# Create staticfiles directory and change ownership of app directory
+RUN mkdir -p /app/staticfiles && chown -R appuser:appuser /app
+
+# Switch to non-root user
+USER appuser

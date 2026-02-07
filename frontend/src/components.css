@@ -1,0 +1,189 @@
+/* Custom Hyper-Utilitarian Component Styles */
+
+/* Bracket Button Style - [ TEXT ] */
+.btn-bracket {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  background: transparent;
+  cursor: pointer;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.btn-bracket:hover {
+  background-color: var(--color-text);
+  color: var(--color-background);
+}
+
+.btn-bracket:focus-visible {
+  outline: 2px solid var(--color-systemBlue);
+  outline-offset: 2px;
+}
+
+/* Primary action button */
+.btn-primary {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-systemBlue);
+  color: var(--color-systemBlue);
+  background: transparent;
+  cursor: pointer;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.btn-primary:hover {
+  border-color: #409cff;
+  color: #409cff;
+  background-color: transparent;
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-systemBlue);
+  outline-offset: 2px;
+}
+
+/* Destructive action button */
+.btn-destructive {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-systemRed);
+  color: var(--color-systemRed);
+  background: transparent;
+  cursor: pointer;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.btn-destructive:hover {
+  border-color: #ff6961;
+  color: #ff6961;
+  background-color: transparent;
+}
+
+.btn-destructive:focus-visible {
+  outline: 2px solid var(--color-systemBlue);
+  outline-offset: 2px;
+}
+
+/* Input with bottom border only */
+.input-terminal {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.input-terminal:focus {
+  outline: 2px solid var(--color-systemBlue);
+  outline-offset: 0;
+  border-bottom-color: var(--color-systemBlue);
+}
+
+.input-terminal::placeholder {
+  color: var(--color-textSecondary);
+}
+
+/* Container with 1px border */
+.container-unibody {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  padding: 1rem;
+}
+
+/* Status text styles */
+.status-loading {
+  color: var(--color-textSecondary);
+}
+
+.status-success {
+  color: var(--color-systemGreen);
+}
+
+.status-error {
+  color: var(--color-systemRed);
+}
+
+/* Table styles */
+.table-terminal {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-terminal th,
+.table-terminal td {
+  border: 1px solid var(--color-border);
+  padding: 1rem;
+  text-align: left;
+}
+
+.table-terminal th {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.table-terminal td {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Cursor blink animation for loading states */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink::after {
+  content: '_';
+  animation: blink 1s infinite;
+}
+
+/* Typography Hierarchy - Weight and Case Only */
+.text-hierarchy-1 {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-hierarchy-2 {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-hierarchy-3 {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-hierarchy-4 {
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-hierarchy-5 {
+  font-weight: normal;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--color-textSecondary);
+}

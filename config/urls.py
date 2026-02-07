@@ -19,7 +19,12 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-from hrms.views import EmployeeViewSet, AttendanceViewSet, DashboardStatsView
+from hrms.views import (
+    EmployeeViewSet,
+    AttendanceViewSet,
+    DashboardStatsView,
+    health_check,
+)
 
 router = DefaultRouter()
 router.register(r"employees", EmployeeViewSet)
@@ -27,6 +32,8 @@ router.register(r"attendance", AttendanceViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    # Health check endpoint (no /api/ prefix for simplicity)
+    path("health/", health_check, name="health-check"),
     path("api/", include(router.urls)),
     # OpenAPI Documentation
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
