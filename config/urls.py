@@ -30,18 +30,20 @@ from hrms.views import (
 
 def api_root(request):
     """Root endpoint with API information"""
-    return JsonResponse({
-        "message": "HRMS Lite API",
-        "version": "1.0.0",
-        "status": "operational",
-        "endpoints": {
-            "health": "/health/",
-            "api_docs": "/api/docs/",
-            "dashboard": "/api/dashboard/",
-            "employees": "/api/employees/",
-            "attendance": "/api/attendance/",
+    return JsonResponse(
+        {
+            "message": "HRMS Lite API",
+            "version": "1.0.0",
+            "status": "operational",
+            "endpoints": {
+                "health": "/health/",
+                "api_docs": "/api/docs/",
+                "dashboard": "/api/dashboard/",
+                "employees": "/api/employees/",
+                "attendance": "/api/attendance/",
+            },
         }
-    })
+    )
 
 
 router = DefaultRouter()
