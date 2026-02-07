@@ -17,6 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.http import JsonResponse
 from rest_framework.routers import DefaultRouter
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from hrms.views import (
@@ -26,11 +27,29 @@ from hrms.views import (
     health_check,
 )
 
+
+def api_root(request):
+    """Root endpoint with API information"""
+    return JsonResponse({
+        "message": "HRMS Lite API",
+        "version": "1.0.0",
+        "status": "operational",
+        "endpoints": {
+            "health": "/health/",
+            "api_docs": "/api/docs/",
+            "dashboard": "/api/dashboard/",
+            "employees": "/api/employees/",
+            "attendance": "/api/attendance/",
+        }
+    })
+
+
 router = DefaultRouter()
 router.register(r"employees", EmployeeViewSet)
 router.register(r"attendance", AttendanceViewSet)
 
 urlpatterns = [
+    path("", api_root, name="api-root"),
     path("admin/", admin.site.urls),
     # Health check endpoint (no /api/ prefix for simplicity)
     path("health/", health_check, name="health-check"),
