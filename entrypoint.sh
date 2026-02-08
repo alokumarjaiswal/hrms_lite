@@ -3,9 +3,11 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-# Validate environment variables before proceeding
-echo "Validating deployment environment..."
-python check_deployment.py
+# Validate environment variables only if not in local development
+if [ "${DEBUG}" != "1" ]; then
+    echo "Validating deployment environment..."
+    python check_deployment.py
+fi
 
 # Run migrations
 python manage.py migrate
